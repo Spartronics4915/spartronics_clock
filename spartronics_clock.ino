@@ -58,7 +58,6 @@ static const char *_messages[] = {
     "Did you do your survey?",
     "ROCKIN' ROBOT!",
     "ENABLING!",
-    "FIRST RISE: The Force is Building",
     "ATLaS",
     "GAEA",
     "ARES",
@@ -66,7 +65,7 @@ static const char *_messages[] = {
     "THEMIS",
     "CHAOS",
     "ATHENA",
-    "INFINITE RECHARGE!",
+    "RAPID REACT!",
     "Sleep? Who has time for that?",
     "Safety Glasses!",
     "More than Robots",
@@ -74,8 +73,8 @@ static const char *_messages[] = {
     "I build robots...",
     "Do. Or do not. There is no try.",
     "Camden is above average",
-    "OBEY",
-    "Mr. Chee is an adequate teacher."
+    "Mr. Chee is a great teacher!",
+    "owo"
 };
 
 /**
@@ -95,13 +94,11 @@ typedef struct {
  *  List of events to count-down to. They must be sorted in ascending order.
  */
 static const CalendarTime_t _important_times[] = {
-    { 2019, 10, 11, 15, 15,  0, "GirlsGen" },           // GirlsGen pack time
-    { 2020,  1,  4,  7,  0,  0, "Kickoff" },            // Kickoff
-    { 2020,  2, 18, 21,  0,  0, "Bag day" },            // Pseudo-bag-day
-    { 2020,  2, 28, 12,  0,  0, "Glacier Peak" },       // Glacier Peak
-    { 2020,  3, 20, 12,  0,  0, "Bellingham" },         // Bellingham
-    { 2020,  4,  1,  9,  0,  0, "Districts" },          // District Champs
-    { 2020,  4, 14, 12,  0,  0, "Worlds" },             // Worlds
+    { 2022,  1,  8,  7,  0,  0, "Kickoff" },            // Kickoff
+    { 2022,  2, 18, 12,  0,  0, "Sammamish" },          // Sammammish
+    { 2022,  3, 25, 12,  0,  0, "Auburn" },             // Auburn
+    { 2022,  4,  6,  9,  0,  0, "Districts" },          // District Champs
+    { 2022,  4, 23, 12,  0,  0, "Worlds" },             // Worlds
 };
 
 static time_t _target_time;
