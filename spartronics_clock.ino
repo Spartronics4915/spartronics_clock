@@ -36,6 +36,7 @@
 #include <TimeLib.h>
 #include <Wire.h>
 #include <stdbool.h>
+#include <IntervalTimer.h>
 
 #define DEBUG_ON    0
 
@@ -47,31 +48,21 @@
 
 // Fun messages to print
 static const char *_messages[] = {
-    "Spartronics 4915 - Woot!",
-    "Gracious Professionalism",
-    "Everybody is in Marketing!",
-    "Robots don't quit!",
-    "Clio was here...",
-    "Mentors Rock!",
-    "Water game confirmed!",
-    "Are we all having PHUN?",
-    "Did you do your survey?",
-    "ROCKIN' ROBOT!",
-    "ENABLING!",
-    "FIRST RISE: The Force is Building",
-    "ATLaS",
-    "GAEA",
-    "ARES",
-    "HELIOS",
-    "THEMIS",
-    "CHAOS",
-    "INFINITE RECHARGE!",
-    "Sleep? Who has time for that?",
-    "Safety Glasses!",
-    "More than Robots",
-    "How about a scissor lift?",
-    "I buid robots...",
-    "Do. Or do not. There is no try.",
+    "Spartronics 4915",
+    "1001100110011",
+    "Everyone's a marketer!",
+    "REBUILT presented by Haas",
+    "Scouting is cool",
+    "Safety glasses!!!",
+    "FIRST AGE",
+    "ATLaS GAEA ARES HELIOS THEMIS CHAOS ATHENA HERMES TALOS NEMESIS EPHYRA ???",
+    "Mentors are cool",
+    "fun and whimsy",
+    "*building noises*",
+    "Glacier Peak is going to be peak",
+    "We love drive team! <3",
+    "We are going to worlds.",
+    "We are going to win!"
 };
 
 /**
@@ -89,15 +80,13 @@ typedef struct {
 
 /**
  *  List of events to count-down to. They must be sorted in ascending order.
+ YYYY:MM:DD:hh:mm:ss
  */
 static const CalendarTime_t _important_times[] = {
-    { 2019, 10, 11, 15, 15,  0, "GirlsGen" },           // GirlsGen pack time
-    { 2020,  1,  4,  7,  0,  0, "Kickoff" },            // Kickoff
-    { 2020,  2, 18, 21,  0,  0, "Bag day" },            // Pseudo-bag-day
-    { 2020,  2, 28, 12,  0,  0, "Glacier Peak" },       // Glacier Peak
-    { 2020,  3, 20, 12,  0,  0, "Bellingham" },         // Bellingham
-    { 2020,  4,  1,  9,  0,  0, "Districts" },          // District Champs
-    { 2020,  4, 14, 12,  0,  0, "Worlds" },             // Worlds
+    { 2026,  3, 14,  0,  0,  0, "Glacier Peak" },
+    { 2026,  3, 27,  0,  0,  0, "Clackamas" },
+    { 2026,  4,  9,  0,  0,  0, "Districts" },            
+    { 2026,  4, 29,  0,  0,  0, "Worlds" },
 };
 
 static time_t _target_time;

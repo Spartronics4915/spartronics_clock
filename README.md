@@ -25,7 +25,7 @@ Scrolling message is supported which is set via the mode button
 	- Connect a computer to the USB port of the clock module
 	- Load the Arduino IDE, and select the port where the Teensy is connected (**Tools -> Port**)
 	- Start the Arduino serial monitor (**Tools -> Serial Monitor**), and set data rate to **115200bps**
-	- On clock module, change mode to time display by pressing **Inc** twice
+	- On clock module, change mode to time display by pressing **Inc** twice (this may take multiple tries, its a little finicky)
 	- While the time is displayed, click **Mode** twice (quickly)
 	- The words **SET TIME** should be displayed in red on the clock, and a prompt message should be displayed o the serial terminal
 	- Using the serial terminal, follow the prompts and enter the time in the format **YYYY:MM:DD:hh:mm:ss**
@@ -33,7 +33,8 @@ Scrolling message is supported which is set via the mode button
 	- If successful, the new time should be displayed. Otherwise, you must re-enter time setting mode and try again
 
 ## Building and Loading Code
-TBD
+Follow these instructions to install Teensy https://www.pjrc.com/teensy/td_download.html
+Install the various libraries that are needed.
 
 ## Future Enhancements?
 - Use the EEPROM on the RTC board to store message strings that can be updated via the serial terminal
