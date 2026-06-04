@@ -17,9 +17,9 @@ Scrolling message is supported which is set via the mode button
 
 ## Usage
 - 3 buttons control the behavior of the display
-	- Mode - Change between countdown and messages
-	- Inc - Change between countdown and date/time
-	- Dec - Display the name of the next event
+
+Press middle button to toggle mode
+Press either end button to set time
 
 - To set the clock (ie, adjusting for daylight savings)
 	- Connect a computer to the USB port of the clock module
