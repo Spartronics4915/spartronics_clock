@@ -60,6 +60,7 @@ typedef enum {
     COLOR_GREEN,
     COLOR_BLUE,
     COLOR_PURPLE,
+    COLOR_WHITE,
     // Insert new color names above this line
     COLOR_MAX
 } ColorName_t;
@@ -71,7 +72,8 @@ static const uint16_t _colors[] = {
     [COLOR_YELLOW] = Adafruit_NeoMatrix::Color(90, 90, 0),
     [COLOR_GREEN] = Adafruit_NeoMatrix::Color(0, 128, 0),
     [COLOR_BLUE] = Adafruit_NeoMatrix::Color(0, 50, 170),
-    [COLOR_PURPLE] = Adafruit_NeoMatrix::Color(128, 0, 128)
+    [COLOR_PURPLE] = Adafruit_NeoMatrix::Color(128, 0, 128),
+    [COLOR_WHITE] = Adafruit_NeoMatrix::Color(128, 128, 128)
 };
 
 uint16_t timeColor = _colors[COLOR_YELLOW];
