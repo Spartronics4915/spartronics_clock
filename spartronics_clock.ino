@@ -42,12 +42,36 @@
 
 // Fun messages to print
 static const char *messages[] = {
-    "Good luck on finals",
-    "You should join Spartronics next year",
-    "Thank you to our lovely sponsors",
-    "2026 Milstein Divison Winners",
-    "FRC 4915"
+    "Our bumpers are RED, WHITE & BLUE",
+    "  *** *** ***",
+    "  Top 24 in the WORLD",
+    "  We put the freedom in FRC",
+    "  Follow us on Instagram, YouTube, Facebook, Twitter",
+    "  Summer ends in 59 days"
+    "  Livingwell Bainbridge, Town & Country Markets, Wildernest"
+    "  *** *** ***",
+    "  We love engineering",
+    "  Microsoft, Boeing, ArcanaNetworks, Rotary Club",
+    "  Stay hydrated",
+    "  Follow fire safety laws",
+    "  Westside Pizza, Samer, Island Family Eyecare, Sound Repro Graphics",
+    "  Spartronics",
+    "  *** *** ***",
+    "  1776",
+    "  Glacier Peak and Milstein Division Winners",
+    "  ACE Hardware, Bainbridge Island Review, Jason Shutt, The Real AI Guy  "
+    "  George Washington",
+    "  *** *** ***",
+    "  Join Robotics",
+    "  AMERICA",
+    "  STEM is cool",
+    "  Do your homework",
+    "  *** *** ***",
+    "  Bainbridge Island Community Pharmacy, Coins by SpareChange2, Bay Hay and Feed",
+    "  Wear sunscreen",
+    " ",
 };
+int messageCount = 24;
 static const char *months[] = {"Month 0", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
 /**
@@ -90,12 +114,11 @@ typedef enum   // at each button mode press, display mode changes accordingly
 
 Mode currentMode = DATE;  // tracks the state of the display
 bool changeMode = true;
-double timeTillModeChange = 6000;
-int message = 0;
-int messageCount = 5;
+double timeTillModeChange = 500;
+int message = 21;
 int messageColor = 0;
 int messageX = 0;
-const int cycleSpeed = 70;
+const int cycleSpeed = 20;
 
 /** Good reference for display configuration:
  *  https://learn.adafruit.com/adafruit-neopixel-uberguide/neomatrix-library
@@ -214,26 +237,36 @@ void loop()
 }
 
 void cycleMode() {
+    /*
     if (currentMode == MESSAGE) {
         timeTillModeChange = 6000;
         currentMode = TIME;
     } else if (currentMode == TIME) {
         timeTillModeChange = 6000;
         currentMode = DATE;
-    } else if (currentMode == DATE) {
-        message = (message + 1) % messageCount;
+    } else if (currentMode == DATE) {*/
+        if (message > messageCount) message = -1;
+        message = (message + 1);
         timeTillModeChange = ((strlen(messages[message]) * 6) + MATRIX_WIDTH) * cycleSpeed;
         currentMode = MESSAGE;
         messageX = MATRIX_WIDTH;
-    }
+        Serial.println("new message");
+        Serial.println(message);
+    //}
 }
 
 void displayMessage() {
     messageX--;
-    Serial.println(messageX);
-    matrix.setCursor(messageX, 0);
-    matrix.setTextColor(timeColor);
-    matrix.print(messages[message]);
+
+    int len = strlen(messages[message]);
+
+    for (int charI = 0; charI < len; charI++) {
+        matrix.setCursor(messageX + (charI * 6), 0);
+        if ((charI % 3) == 0) matrix.setTextColor(_colors[COLOR_RED]);
+        else if ((charI % 3) == 1) matrix.setTextColor(_colors[COLOR_WHITE]);
+        else if ((charI % 3) == 2) matrix.setTextColor(_colors[COLOR_BLUE]);
+        matrix.print(messages[message][charI]);
+    }
 }
 
 void displayDate() {
