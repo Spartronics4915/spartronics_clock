@@ -42,11 +42,23 @@
 
 // Fun messages to print
 static const char *messages[] = {
-    "Good luck on finals",
-    "You should join Spartronics next year",
-    "Thank you to our lovely sponsors",
+    "Join Spartronics!",
+    "Meetings every Wednesday 6-8pm!",
     "2026 Milstein Divison Winners",
-    "FRC 4915"
+    "Join our award-winning robotics team!"
+    "FRC 4915",
+    "Business & Marketing",
+    "Programming",
+    "Mechanics",
+    "Electronics",
+    "We love our sponsors",
+    "ATLaS GAEA ARES HELIOS THEMIS CHAOS ATHENA HERMES TALOS NEMESIS EPHYRA ARTEMIS",
+    "We love STEM",
+    "Join us.",
+    "Top 24 in the WORLD in 2026.",
+    "Over 20 Awards Won.",
+    "Follow us on social media",
+    "Don't forget safety glasses!",
 };
 static const char *months[] = {"Month 0", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
@@ -92,10 +104,10 @@ Mode currentMode = DATE;  // tracks the state of the display
 bool changeMode = true;
 double timeTillModeChange = 6000;
 int message = 0;
-int messageCount = 5;
+int messageCount = 17;
 int messageColor = 0;
 int messageX = 0;
-const int cycleSpeed = 70;
+const int cycleSpeed = 30;
 
 /** Good reference for display configuration:
  *  https://learn.adafruit.com/adafruit-neopixel-uberguide/neomatrix-library
@@ -221,7 +233,7 @@ void cycleMode() {
         timeTillModeChange = 6000;
         currentMode = DATE;
     } else if (currentMode == DATE) {
-        message = (message + 1) % messageCount;
+        message = (message + (rand() % (messageCount - 1))) % messageCount;
         timeTillModeChange = ((strlen(messages[message]) * 6) + MATRIX_WIDTH) * cycleSpeed;
         currentMode = MESSAGE;
         messageX = MATRIX_WIDTH;
